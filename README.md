@@ -2,29 +2,27 @@
 
 **BUS 4498 Team Build**
 
-> **Problem to be solved**: [Please briefly describe the business or organization problem your system aims to solve. Make sure to point out a rough baseline (e.g., attend-to-registration rate at 40% in our hackathon scenario) in your problem statement.]
-
-*Replace every bracketed prompt below with your team's information. Delete this instruction and any unused placeholder text before committing the completed charter.*
+> **Problem to be solved**: Campus lost and found systems often rely on students manually searching through found item reports, making it difficult and time consuming to identify potential matches. As a baseline, the current process requires students or campus staff to manually compare lost and found reports to determine whether items match. The system will improve this process by automatically analyzing reports and identifying likely matches, making it easier to reconnect lost items with their owners.
 
 ## Team Charter
 
 ### Team Name
 
-[Enter your team name.]
+Bella & Alyssa 
 
 ### Team Members
 
-- [Team member 1 full name]
-- [Team member 2 full name]
+- Bella Chu
+- Alyssa Lu
 
 
 ### System Name
 
-[Enter the name your team has chosen for the system.]
+ItemTrace
 
 ### System Goal
-[Read Chapter 2 Section 2.1, then enter the well-structured goal of your agentic system]
+Improve the success rate of returning reported lost items to their owners by analyzing lost and found reports, identifying likely matches, and notifying users of potential matches. The system will reduce the time and effort required to search for lost items while making the overall lost and found process more efficient.
 
 ### Who Is Better Off When This Works?
 
-[In one complete sentence, identify who will be better off when the system works.]
+Students and campus staff will be better off because the system makes it easier and faster to identify and return lost items to their owners.
