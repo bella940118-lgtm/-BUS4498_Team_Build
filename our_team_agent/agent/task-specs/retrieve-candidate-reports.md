@@ -9,7 +9,7 @@
 
 ## 1. Task Description
 
-Retrieve existing reports of the opposite type for comparison with the new report. A lost report is compared with found reports, and a found report is compared with lost reports. Retrieval uses the standardized item type and available report fields to find relevant candidates; it does not decide whether any candidate is a match.
+Retrieve existing reports of the opposite type for comparison with the new report. Select reports with the same or a predefined compatible item type. Use available date and location information to order candidates; do not exclude a report solely because its date or location is missing. Record the retrieval criteria used for each candidate. This task does not decide whether a candidate is a match.
 
 ## 2. Inputs
 
@@ -32,7 +32,7 @@ Retrieve existing reports of the opposite type for comparison with the new repor
 ### Output 1
 
 - **Output name:** Candidate report list
-- **Contents and format:** Structured list containing the new report ID and each candidate's report ID, report type, item type, description, location, date, and retrieval basis. An empty list is valid only after a successful query. Include query status and result count.
+- **Contents and format:** Structured list containing the new report ID and each candidate's report ID, report type, item type, description, location, date, retrieval basis, and indicators for missing comparison fields. An empty list is valid only after a successful query. Include query status and result count.
 - **Next task or recipient:** T4: Analyze Potential Matches.
 - **Complete when:** The database query succeeds, returned records are opposite-type reports, and the list or verified empty result is available to T4.
 
@@ -45,7 +45,7 @@ Retrieve existing reports of the opposite type for comparison with the new repor
 - **Output:** Candidate report list
 - **Implementation Route:** Database queries
 - **Integration approach:** Direct integration
-- **Role in this task:** Read report records of the opposite type that may be relevant to the new report. Return matching fields and source report IDs without contact details or database changes.
+- **Role in this task:** Query opposite-type reports with the same or a predefined compatible item type. Order candidates using available date and location information, and return report IDs, comparison fields, retrieval basis, and missing-field indicators without contact details or database changes.
 - **Task timeout:** 30 seconds per report.
 - **Maximum retries:** 1 additional attempt.
 - **Retry only when:** A database connection or query times out temporarily; wait 2 seconds before retrying. An empty successful result is not an error and is not retried.
