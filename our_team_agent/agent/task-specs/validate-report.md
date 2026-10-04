@@ -9,7 +9,7 @@
 
 ## 1. Task Description
 
-Check a newly submitted lost or found report before matching begins. A deterministic validation checks that the report has a report ID, report type, item type, description, location, and date in usable formats. Validation reports missing or invalid fields; it does not fill them in or decide whether the report matches another report.
+Check a newly submitted lost or found report before matching begins. A deterministic validation checks that the report has a report ID, report type, item type, description, location, date, and submitter reference in usable formats. Validation reports missing or invalid fields; it does not fill them in or decide whether the report matches another report.
 
 ## 2. Inputs
 
