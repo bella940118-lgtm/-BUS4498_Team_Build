@@ -23,38 +23,24 @@ If required information is missing, the report is sent for human review rather t
 
 ```mermaid
 flowchart TD
-    START([New lost or found report submitted]) --> T1["T1: Validate Report"]
-
-    T1 -->|Validation tool failure| T7["T7: Resolve Exception Case"]
-    T1 --> D1{"Required information complete?"}
-    D1 -->|No| T7
+    START([New lost or found report]) --> T1["T1: Validate Report"]
+    T1 --> D1{"Information complete?"}
+    D1 -->|No| T7["T7: Resolve Exception Case"]
     D1 -->|Yes| T2["T2: Standardize Report"]
 
-    T2 -->|Tool failure after retries| T7
-    T2 -->|Success| T3["T3: Retrieve Candidate Reports"]
+    T2 --> T3["T3: Retrieve Candidate Reports"]
+    T3 --> T4["T4: Analyze Potential Matches"]
+    T4 --> D2{"Likely match?"}
 
-    T3 -->|Tool failure after retries| T7
-    T3 -->|Success, including an empty result| T4["T4: Analyze Potential Matches"]
-
-    T4 -->|Tool failure or unresolved evidence| T7
-    T4 --> D2{"Likely match identified?"}
-    D2 -->|No| END1([Complete: No likely match identified])
+    D2 -->|No| END1([Complete: No likely match])
     D2 -->|Yes| T5["T5: Review Potential Match"]
+    T5 --> D3{"Approved?"}
 
-    T5 --> D3{"Human review decision"}
-    D3 -->|Approved| T6["T6: Notify User"]
-    D3 -->|Rejected| END2([Complete: No confirmed match])
-    D3 -->|Needs clarification| T7
+    D3 -->|No| END2([Complete: No confirmed match])
+    D3 -->|Yes| T6["T6: Notify User"]
+    T6 -->|Delivered| END3([Complete: User notified])
+    T6 -->|Failed or uncertain| T7
 
-    T6 -->|Delivery confirmed| END3([Complete: User notified])
-    T6 -->|Failed or delivery uncertain| T7
-
-    T7 --> D4{"Human resolution"}
-    D4 -->|Report corrected| T1
-    D4 -->|Retry standardization| T2
-    D4 -->|Retry retrieval| T3
-    D4 -->|Retry analysis| T4
-    D4 -->|Verified not sent; retry notification| T6
-    D4 -->|Prior notification confirmed| END3
-    D4 -->|Cannot resolve now| END4([Stopped: Human follow-up required])
+    T7 --> HOLD([Paused for human resolution])
 ```
+If T1, T2, T3, or T4 fails after its allowed retries, the case is also routed to T7 and paused for human resolution.
