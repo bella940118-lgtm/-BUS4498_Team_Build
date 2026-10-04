@@ -23,7 +23,7 @@ Send a potential-match notice to the recipient identified in an approved human r
 
 - **Input name:** Recipient contact record
 - **Contents and format:** Contact channel and destination associated with the approved recipient report ID, retrieved from ItemTrace's restricted report database at send time.
-- **Source:** ItemTrace report database.
+- **Source:** ItemTrace report database, retrieved by the ItemTrace notification system through a restricted lookup using the approved recipient report ID.
 
 - **If a required input is missing or invalid:** Record the missing or invalid approval/contact field and send the case to T7: Resolve Exception Case. Do not send a message.
 
@@ -43,9 +43,9 @@ Send a potential-match notice to the recipient identified in an approved human r
 - **Tool name:** `send_match_notification`
 - **Input:** Approved match decision; Recipient contact record
 - **Output:** Notification result
-- **Implementation Route:** Web API calls
+- **Implementation Route:** Database queries and web API calls
 - **Integration approach:** Direct integration
-- **Role in this task:** Verify approval and recipient identity, send the potential-match notice through the approved channel, and store a delivery receipt. Use the decision ID as an idempotency key to prevent duplicate notices.
+- **Role in this task:** Verify approval and recipient identity, retrieve the approved recipient contact record through a restricted database query, send the potential-match notice through the approved channel, and store a delivery receipt. Use the decision ID as an idempotency key to prevent duplicate notices.
 - **Task timeout:** 60 seconds per approved decision.
 - **Maximum retries:** 1 additional attempt.
 - **Retry only when:** The provider explicitly confirms that the first attempt was not accepted and the error is temporary; wait 5 seconds before retrying with the same decision ID. If delivery status is unknown, do not retry automatically.
