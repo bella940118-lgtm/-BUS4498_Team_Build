@@ -34,13 +34,15 @@ flowchart TD
 
     D2 -->|No| END1([Complete: No likely match])
     D2 -->|Yes| T5["T5: Review Potential Match"]
-    T5 --> D3{"Approved?"}
+    T5 --> D3{"Review decision"}
 
-    D3 -->|No| END2([Complete: No confirmed match])
-    D3 -->|Yes| T6["T6: Notify User"]
+    D3 -->|Rejected| END2([Complete: No confirmed match])
+    D3 -->|Approved| T6["T6: Notify User"]
+    D3 -->|Needs clarification| T7
+
     T6 -->|Delivered| END3([Complete: User notified])
     T6 -->|Failed or uncertain| T7
 
-    T7 --> HOLD([Paused for human resolution])
+    T7 --> HOLD([Paused for human follow-up])
 ```
 If T1, T2, T3, or T4 fails after its allowed retries, the case is also routed to T7 and paused for human resolution.
