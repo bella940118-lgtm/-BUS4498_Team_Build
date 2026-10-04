@@ -1,7 +1,5 @@
 # Workflow of Tasks
 
-*BUS 4498 Team Build Milestone 1. Save this file at `our_team_agent/agent/workflow-of-tasks.md` in `BUS4498_Team_Build`. Complete the prompts for your team's own problem. Remove these instructions and unused prompts before submitting.*
-
 ## 1. Workflow Goal
 
 This workflow supports the goal in our completed [team charter] https://github.com/bella940118-lgtm/-BUS4498_Team_Build/blob/main/README.md.
