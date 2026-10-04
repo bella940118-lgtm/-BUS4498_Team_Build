@@ -4,34 +4,47 @@
 
 ## 1. Workflow Goal
 
-This workflow supports the goal in our completed [team charter](PASTE_CHARTER_FILE_URL_HERE).
+This workflow supports the goal in our completed [team charter] https://github.com/bella940118-lgtm/-BUS4498_Team_Build/blob/main/README.md.
 
-*Open your completed charter file on GitHub, copy its address from the browser, and replace `PASTE_CHARTER_FILE_URL_HERE` with that address. Keep the charter in its existing location; do not create a second charter.*
+The workflow supports ItemTrace's goal of improving the success rate of returning reported lost items to their owners by analyzing lost and found reports, identifying likely matches, and notifying users of potential matches.
 
 ## 2. Workflow Trigger
 
-[State the event, request, schedule, or condition that starts one run.]
+The workflow begins when a new lost or found item report is submitted to ItemTrace.
 
 ## 3. Completion Condition at Runtime
 
-[State the observable condition that ends one run successfully. Identify what result or evidence must exist. This is different from the long-term target in your system goal.]
+One workflow run is successfully completed when the submitted report has been processed and either no likely match is identified or a potential match has been reviewed and the appropriate user has been notified of the result.
 
 ## 4. General Workflow
 
-[Describe the normal sequence of tasks in one or two paragraphs. Then explain what happens when necessary information is missing, a tool fails, or a case requires human review. Identify what the person receives and whether the workflow stops or resumes after review.]
+When a new lost or found item report is submitted, ItemTrace first checks the report for the information needed to evaluate potential matches. The system then standardizes the report details so that descriptions can be compared consistently. It retrieves relevant reports from the opposite report type and analyzes characteristics such as item type, description, location, and date to identify potential matches.
+
+If required information is missing, the report is sent for human review rather than continuing with incomplete information. If the system identifies a likely match, a human reviewer verifies the potential match before any notification is sent. If the reviewer approves the match, ItemTrace notifies the appropriate user of the potential match. If the reviewer rejects the match, the report is recorded as having no confirmed match and the workflow ends. If a required automated tool fails after its allowed retries, the case is also sent for human review before the workflow resumes or stops.
 
 ## 5. Workflow Diagram
 
-*Replace the example diagram with your team's workflow. Give each work task a unique ID, such as T1, and a verb-object name, such as Retrieve Requests. Label branch conditions. Show human-review paths and stopping points. Use the same task IDs and names in the worksheet, task summary, and task specifications. Start/end markers and gateways that only route the flow are not work tasks.*
 
 ```mermaid
 flowchart TD
-    START([Workflow trigger]) --> T1["T1: First task"]
-    T1 --> D1{"Required evidence available?"}
-    D1 -->|Yes| T2["T2: Next task"]
-    D1 -->|No| T3["T3: Review exception"]
-    T2 --> END([Successful completion])
-    T3 --> HANDOFF([Stopped for human review])
-```
+    START([New lost or found report submitted]) --> T1["T1: Validate Report"]
 
-*The example labels are placeholders, not required project tasks. After editing, use GitHub Preview to check that the Mermaid diagram renders. Create a specification for every work task, including human-review tasks, and list each one in `task-summary.md`. Record automation levels and reasons only in the team worksheet.*
+    T1 --> D1{"Required information complete?"}
+
+    D1 -->|Yes| T2["T2: Standardize Report"]
+    D1 -->|No| T5["T5: Review Exception"]
+
+    T2 --> T3["T3: Retrieve Candidate Reports"]
+    T3 --> T4["T4: Analyze Potential Matches"]
+
+    T4 --> D2{"Likely match identified?"}
+
+    D2 -->|No| END1([Complete: No likely match identified])
+    D2 -->|Yes| T5["T5: Review Potential Match"]
+
+    T5 --> D3{"Match approved?"}
+
+    D3 -->|Yes| T6["T6: Notify User"]
+    D3 -->|No| END2([Complete: No confirmed match])
+
+    T6 --> END3([Complete: User notified])
