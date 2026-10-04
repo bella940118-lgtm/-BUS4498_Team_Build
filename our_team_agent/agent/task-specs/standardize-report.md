@@ -9,7 +9,7 @@
 
 ## 1. Task Description
 
-Convert a validated report into a consistent structure for comparing lost and found reports. A fixed model-supported operation normalizes wording and item categories while retaining the original values. It may clarify equivalent terms but must not invent color, brand, date, location, or other facts absent from the report. Uncertain interpretations remain marked as uncertain.
+Convert a validated report into a consistent structure using predefined formatting and item-category mapping rules. Normalize capitalization, spacing, and known category labels while preserving the original submitted values. If a value has no defined mapping, keep it unchanged and mark it as uncertain. Do not infer missing item attributes.
 
 ## 2. Inputs
 
@@ -37,10 +37,10 @@ Convert a validated report into a consistent structure for comparing lost and fo
 - **Tool name:** `standardize_report`
 - **Input:** Validated report
 - **Output:** Standardized report
-- **Implementation Route:** Web API calls
+- **Implementation Route:** Functions/scripts
 - **Integration approach:** Direct integration
-- **Role in this task:** Apply one fixed model-supported standardization operation and return structured normalized fields with uncertainty flags. Validate the returned structure before saving it.
+- **Role in this task:** Apply predefined formatting and category-mapping rules to the validated report. Return structured standardized fields and uncertainty flags, then validate the result before saving it.
 - **Task timeout:** 60 seconds per report.
 - **Maximum retries:** 1 additional attempt.
-- **Retry only when:** The service times out or returns a temporary error; wait 3 seconds before retrying. Do not retry a content conflict or unsupported interpretation. Save the result under the report ID so a retry cannot create duplicate standardized reports.
+- **Retry only when:** A temporary processing or storage error occurs; wait 3 seconds before retrying. Do not retry an unmapped or conflicting value automatically. Save the result under the report ID so a retry cannot create duplicate standardized reports.
 - **On timeout, exhausted retries, or an error that cannot be retried:** Record `standardization_error`, retain the original report and error details, and send the case to T7: Resolve Exception Case. Do not continue to T3.
