@@ -22,7 +22,6 @@ If required information is missing, the report is sent for human review rather t
 
 ## 5. Workflow Diagram
 
-
 ```mermaid
 flowchart TD
     START([New lost or found report submitted]) --> T1["T1: Validate Report"]
@@ -30,7 +29,7 @@ flowchart TD
     T1 --> D1{"Required information complete?"}
 
     D1 -->|Yes| T2["T2: Standardize Report"]
-    D1 -->|No| T5["T5: Review Exception"]
+    D1 -->|No| HANDOFF([Stopped for human review: Missing information])
 
     T2 --> T3["T3: Retrieve Candidate Reports"]
     T3 --> T4["T4: Analyze Potential Matches"]
