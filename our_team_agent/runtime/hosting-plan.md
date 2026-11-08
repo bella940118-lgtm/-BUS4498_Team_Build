@@ -10,6 +10,7 @@ Written in plain words with the BUS 4498 Agent Builder Kit. Our AI assistant tur
 - Owner of the repository and the Supabase project: Bella Chu
 - Teammate: Alyssa Lu, a GitHub repository collaborator and Developer in the Supabase organization.
 - We say “I’m working on it” and “pushed” in: Our team text message group chat. One of us works at a time.
+- ItemTrace will use separate ItemTrace-specific tables and access controls within the shared Supabase project to prevent interference with Event Radar's existing data.
 
 ## What our agent does
 
