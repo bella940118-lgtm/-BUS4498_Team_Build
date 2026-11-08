@@ -59,4 +59,4 @@ The plan also names **an owner** (the one person who answers for the agent), **t
 ## Connecting to Supabase
 
 - **If the Supabase MCP server is connected:** apply database changes with `apply_migration` and save the same SQL in `supabase/migrations/`. Deploy functions with `deploy_edge_function`. Read the logs when something fails. Never run destructive SQL.
-- **If it isn’t connected:** - write the files, then tell us exactly what to paste where: the SQL Editor for SQL, and Edge Functions → agent → Code → Deploy for the ItemTrace agent. If the function does not exist yet, create it first.
+- **If it isn’t connected:** Write the files, then tell us exactly what to paste where: the SQL Editor for SQL, and Edge Functions → agent → Code → Deploy for the ItemTrace agent. If the function does not exist yet, create it first.
