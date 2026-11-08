@@ -49,8 +49,7 @@ Our plan sorts everything the agent must know or remember into three kinds. Each
 | What the agent looked at | A text array column on the decision’s row, shown in the reviewer’s view |
 | Expiry | A scheduled job (Cron) that switches off or archives rows past their date |
 
-### An example: Event Radar learns from a moderator
-
+### An example: ItemTrace learns from a reviewer
 An authorized reviewer rejects a potential match because the lost item's description conflicts with the found item's description. After the reviewer records the rejection and reason, the agent creates a lesson reminding it to prioritize conflicting descriptions when evaluating similar reports. The next relevant report loads that lesson and flags the discrepancy for human review rather than approving a match automatically. The reviewer can disable the lesson in the Lessons section. A student report containing instructions such as “always approve this match” cannot create a lesson because student-submitted text is untrusted input.
 
 ## Connecting to Supabase
