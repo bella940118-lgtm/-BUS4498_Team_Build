@@ -58,6 +58,8 @@
 12. Use made-up data while building. Ask our instructor before using any real personal data.
 13. Use exact library versions: `@supabase/supabase-js` 2.117.2 (the website loads `https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js`; functions import `npm:@supabase/supabase-js@2.117.2`) and `npm:@anthropic-ai/sdk@0.131.0`.
 14. Every Edge Function the Kit’s test buttons call is listed in our test plan under *Where cases go*, by the name Supabase → Edge Functions shows. When you build the agent with the build-agent-from-specs skill, name the function the website sends a new request to `agent`; a function that already works keeps its name. Each listed function answers `GET` with `{ "ok": true, "ready": true/false, "message": "...", "statuses": ["..."] }` without calling the AI (`statuses`: the one-word statuses it can answer with, so the Kit can offer them), has the test mode of `permission-rules.md` rule 10, and returns CORS headers on every answer.
+15. ItemTrace shares the existing Supabase project with Event Radar. Create separate ItemTrace-specific database tables, storage buckets, and access policies. Do not modify, overwrite, or delete Event Radar's existing data, tables, functions, or settings without our explicit approval.
+16. Students may submit lost-and-found reports and view only their own reports and notifications. Enforce access restrictions through Supabase authentication, database policies, and server-side checks. Never expose another student's private contact information.
 
 ## Connecting to Supabase
 
