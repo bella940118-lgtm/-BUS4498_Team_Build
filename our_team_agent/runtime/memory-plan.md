@@ -7,7 +7,7 @@ Written in plain words with the BUS 4498 Agent Builder Kit. Our AI assistant des
 | # | What | Kind | Where it lives | Who can change it | When it expires |
 |---|---|---|---|---|---|
 | 1 | ItemTrace report validation rules and matching criteria | Knowledge it reads | A file only we change | Only the builders | When a newer record replaces it |
-| 2 | Lost-and-found reports, processing statuses, and recorded human reviewer decisions (review decisions can only be made by authorized human reviewers). | What happened | A table the agent writes | The agent itself | After a date or deadline |
+| 2 | Lost-and-found reports, processing statuses, and recorded human reviewer decisions (review decisions can only be made by authorized human reviewers). | What happened | A table the agent writes | The agent updates processing statuses; authorized human reviewers make approval and rejection decisions. Students can view only their own reports, and only authorized reviewers and administrators can access matching evidence and reviewer decisions. | 90 days after the report is closed, unless a longer retention period is required for an unresolved case. |
 | 3 | Lessons from approved and rejected potential matches | Lessons it learns | A lessons table the agent writes | The agent, from a trusted outcome | When a newer record replaces it |
 
 ## Lessons it learns
