@@ -27,8 +27,8 @@ Students can submit lost or found item reports and view their own report informa
 
 | # | Tool or application | What the agent uses it for | What it does with it | Most sensitive data it touches | How it connects |
 |---|---|---|---|---|---|
-| 1 | Superbase | Stores and retrieves lost-and-found reports, candidate matches, human review decisions, and workflow records. | (not sure) | (not sure) | Not sure yet |
-| 2 | Email notification service | Sends approved potential-match notifications to the appropriate user and records delivery results. | (not sure) | (not sure) | Not sure yet |
+| 1 | Superbase | Stores and retrieves lost-and-found reports, candidate matches, human review decisions, and workflow records. | Read and write authorized records | Report details, user contact information, reviewer decisions |Supabase API with restricted credentials and row-level security|
+| 2 | Email notification service | Sends approved potential-match notifications to the appropriate user and records delivery results. | Send messages and record delivery status | Recipient email address and approved match details |Authenticated email API; provider to be selected|
 
 ## Files people upload
 
