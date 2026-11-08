@@ -45,7 +45,7 @@ The plan also names **an owner** (the one person who answers for the agent), **t
 | In our plan | Build it as |
 |---|---|
 | A fixed limit only the builders change | A named constant in code, with the plan’s number |
-| A limit or switch a reviewer may change | A row in the settings table; the function reads it on every run |
+| A limit or switch the ItemTrace owner may change | A row in the settings table; the function reads it on every run |
 | The off switch | The `paused` row; when on, the function answers without calling the AI |
 | An *Ask first* situation | A reason added in code that makes the record wait, naming what is missing |
 | A *Never* | A check in code, plus a constraint, a policy, or a missing grant in the database |
