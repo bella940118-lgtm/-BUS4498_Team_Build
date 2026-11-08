@@ -8,7 +8,7 @@ Written in plain words with the BUS 4498 Agent Builder Kit. Our AI assistant tur
 - Our agent’s folder: `our_team_agent` (our plans are in `our_team_agent/runtime/`)
 - Supabase project: https://vymksytzzgoxonfvvgzj.supabase.co
 - Owner of the repository and the Supabase project: Bella Chu
-- Teammate: Bella Chu, a collaborator on GitHub and a Developer in the Supabase organization
+- Teammate: Alyssa Lu, a GitHub repository collaborator and Developer in the Supabase organization.
 - We say “I’m working on it” and “pushed” in: Our team text message group chat. One of us works at a time.
 
 ## What our agent does
@@ -27,7 +27,7 @@ Students can submit lost or found item reports and view their own report informa
 
 | # | Tool or application | What the agent uses it for | What it does with it | Most sensitive data it touches | How it connects |
 |---|---|---|---|---|---|
-| 1 | Superbase | Stores and retrieves lost-and-found reports, candidate matches, human review decisions, and workflow records. | Read and write authorized records | Report details, user contact information, reviewer decisions |Supabase API with restricted credentials and row-level security|
+| 1 | Supabase | Stores and retrieves lost-and-found reports, candidate matches, human review decisions, and workflow records. | Read and write authorized records | Report details, user contact information, reviewer decisions |Supabase API with restricted credentials and row-level security|
 | 2 | Email notification service | Sends approved potential-match notifications to the appropriate user and records delivery results. | Send messages and record delivery status | Recipient email address and approved match details |Authenticated email API; provider to be selected|
 
 ## Files people upload
